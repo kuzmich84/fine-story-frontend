@@ -1,0 +1,55 @@
+@mixin reset-ul() {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin set-font-Montserrat-regular() {
+  font-family: "Montserrat-regular", "Arial", sans-serif;
+  font-weight: normal;
+}
+
+@mixin set-font-Montserrat-bold() {
+  font-family: "Montserrat-bold", "Arial", sans-serif;
+  font-weight: 900;
+}
+
+@mixin set-font-Montserrat-light() {
+  font-family: "Montserrat-light", "Arial", sans-serif;
+  font-weight: 500;
+}
+
+@mixin set-font-Montserrat-regular-italic() {
+  font-family: "Montserrat-regular-italic", "Arial", sans-serif;
+  font-weight: normal;
+}
+
+@mixin set-font-Montserrat-bold-italic() {
+  font-family: "Montserrat-bold-italic", "Arial", sans-serif;
+  font-weight: 900;
+}
+
+@mixin set-font-Montserrat-light-italic() {
+  font-family: "Montserrat-light-italic", "Arial", sans-serif;
+  font-weight: 500;
+}
+
+@mixin set-font-Ubuntu-regular() {
+  font-family: "Ubuntu-regular", "Arial", sans-serif;
+  font-weight: normal;
+}
+
+@mixin set-font-Ubuntu-bold() {
+  font-family: "Ubuntu-bold", "Arial", sans-serif;
+  font-weight: 700;
+}
+
+@mixin set-font-Ubuntu-regular-italic() {
+  font-family: "Ubuntu-regular-italic", "Arial", sans-serif;
+  font-weight: normal;
+}
+
+@mixin set-font-Ubuntu-bold-italic() {
+  font-family: "Ubuntu-bold-italic", "Arial", sans-serif;
+  font-weight: 700;
+}

@@ -1,0 +1,33 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.social__list {
+  @include reset-ul();
+  display: flex;
+  justify-content: center;
+}
+
+.social__item {
+  margin-right: 30px;
+}
+
+.social__item:last-child {
+  margin-right: 0;
+}
+
+.social__item svg {
+  fill: $white;
+
+  &:hover {
+    fill: $light-green;
+  }
+
+  &:active {
+    fill: $light-green;
+    opacity: 0.5;
+  }
+}
+
+.social__link {
+  cursor: pointer;
+}

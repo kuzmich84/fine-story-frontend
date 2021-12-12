@@ -1,0 +1,113 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.main {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.portfolio {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 25px 45px 0;
+
+}
+
+.list {
+  @include set-font-Montserrat-regular();
+  @include reset-ul();
+  display: flex;
+  min-height: 48px;
+  background-color: #f1f1f1;
+  align-items: center;
+  padding-left: 38px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+
+.list a {
+  @include set-font-Montserrat-regular();
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: 0.24px;
+  color: #6a6a6a;
+  text-transform: uppercase;
+}
+
+.list__item {
+  padding-right: 54px;
+}
+
+.list__item:last-child {
+  padding-right: 0;
+}
+
+.list__itemActive a {
+  color: $light-green;
+}
+
+.title {
+  background-color: #37ba8e;
+  padding-left: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 28px;
+}
+
+.portfolio h2,
+.portfolio p {
+  @include set-font-Montserrat-light;
+  font-size: 22px;
+  line-height: 22px;
+  font-stretch: normal;
+  font-style: normal;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio h2 {
+  &::before {
+    content: none;
+  }
+
+  &::after {
+    content: none;
+  }
+}
+
+.portfolio p {
+  font-size: 16px;
+}
+
+@media (max-width: $mobile-width) {
+  .portfolio h2 {
+    font-size: 20px;
+    line-height: 18px;
+  }
+  .title {
+    padding-left: 15px;
+  }
+
+  .portfolio p {
+    font-size: 14px;
+  }
+
+  .list {
+    padding-left: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .content {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

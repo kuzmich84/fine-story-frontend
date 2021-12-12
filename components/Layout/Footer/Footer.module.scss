@@ -1,0 +1,36 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+
+.footer {
+  padding: 15px;
+  color: #f4f6fd;
+  font-size: 14px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 470px;
+  z-index: 10001;
+  background: #303030;
+}
+
+.footer p {
+  text-align: center;
+  @include set-font-Montserrat-regular;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.footer a {
+  color: $white;
+  font-weight: bold;
+}
+
+@media (max-width: $tablet-width) {
+  .footer {
+    position: static;
+    width: auto;
+  }
+}

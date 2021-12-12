@@ -5,18 +5,30 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stylelint": "stylelint \"**/*.scss\" --fix"
   },
   "dependencies": {
-    "next": "12.0.4",
+    "axios": "^0.24.0",
+    "classnames": "^2.3.1",
+    "next": "^12.0.7",
+    "qs": "^6.10.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-markdown": "^7.1.1"
   },
   "devDependencies": {
+    "@types/classnames": "^2.3.1",
     "@types/node": "16.11.11",
+    "@types/qs": "^6.9.7",
     "@types/react": "17.0.37",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
+    "react-typescript-component-generator": "^0.1.5",
+    "sass": "^1.44.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-htmlacademy": "^0.1.11",
+    "stylelint-scss": "^4.0.0",
     "typescript": "4.5.2"
   }
 }

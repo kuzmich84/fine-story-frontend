@@ -1,0 +1,38 @@
+@import "../../styles/mixins";
+@import "../../styles/variables.scss";
+
+
+.list {
+  background-color: #f6f6f6;
+  @include reset-ul;
+  border-left: 4px solid $light-green;
+  padding: 35px 30px 30px;
+  min-width: 280px;
+}
+
+.list li {
+  margin-bottom: 5px;
+}
+
+.list a {
+  font-size: 16px;
+  @include set-font-Montserrat-light;
+  color: rgb(112, 112, 112);
+  line-height: 1.571;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+.list h3 {
+  @include set-font-Ubuntu-bold;
+  font-size: 20px;
+  color: rgb(107, 107, 107);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+

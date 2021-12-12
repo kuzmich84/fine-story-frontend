@@ -1,0 +1,61 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.welcome {
+  z-index: 2;
+}
+
+.main__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.welcome__title {
+  @include set-font-Ubuntu-bold;
+  font-size: 60px;
+  line-height: 28px;
+  color: $white;
+  z-index: 2000;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+}
+
+.welcome__text {
+  @include set-font-Ubuntu-regular;
+  font-size: 26px;
+  line-height: 28px;
+  color: $white;
+  text-transform: capitalize;
+}
+
+.welcomeHi {
+  position: absolute;
+  width: 230px;
+  height: 80px;
+  border: 7px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -34px;
+  margin-top: -200px;
+
+}
+
+.welcome p {
+  font-size: 50px;
+  @include set-font-Ubuntu-bold;
+  color: rgb(255, 255, 255);
+  line-height: 0.56;
+}
+
+@media (max-width: $mobile-width) {
+  .welcome__title {
+    font-size: 30px;
+  }
+
+  .welcome p {
+    font-size: 25px;
+  }
+}

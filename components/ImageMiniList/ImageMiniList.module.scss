@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.image_mini__list {
+  @include reset-ul();
+  display: flex;
+  justify-content: center;
+}
+
+.image_mini__item {
+  margin-right: 11px;
+}
+
+.image_mini__item:last-child {
+  margin-right: 0;
+}
+

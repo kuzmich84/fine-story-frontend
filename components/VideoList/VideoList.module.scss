@@ -1,0 +1,29 @@
+@import "../../styles/mixins";
+@import "../../styles/variables.scss";
+
+.list {
+  @include reset-ul;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.list__item {
+  margin-bottom: 20px;
+  max-width: 400px;
+  height: auto;
+  margin-right: 20px;
+}
+
+
+.content {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+@media (max-width: $mobile-width) {
+  .list__item {
+    margin-right: 0;
+  }
+}

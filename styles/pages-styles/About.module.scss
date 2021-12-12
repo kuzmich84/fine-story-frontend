@@ -1,0 +1,156 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.main {
+  width: 75%;
+}
+
+.about {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 100px;
+}
+
+.content {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.photo {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.image {
+  display: block;
+}
+
+.text {
+  min-height: 336px;
+  border: 1px solid #f6f6f6;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.25);
+  padding: 50px 84px 30px;
+  position: relative;
+  box-sizing: border-box;
+
+
+  &::before {
+    content: '';
+    display: flex;
+    position: absolute;
+    width: 39px;
+    height: 2px;
+    background-color: $light-green;
+    top: 85px;
+  }
+
+  &::after {
+    content: '';
+    display: flex;
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: $light-green;
+    top: 90px;
+  }
+}
+
+.text h3 {
+  @include set-font-Ubuntu-bold;
+  font-size: 30px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.67;
+  letter-spacing: normal;
+  color: #4e4e4e;
+  margin-bottom: 45px;
+}
+
+.text p {
+  @include set-font-Montserrat-regular;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  color: #646464;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.text a {
+  color: $light-green;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    display: block;
+  }
+
+  .photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    display: block;
+
+
+  }
+
+  .image {
+    border-radius: 50%;
+    border: 5px solid $light-green!important;
+  }
+
+  .content h2 {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (max-width: $mobile-width) {
+  .text {
+    padding-left: 5px;
+    padding-right: 5px;
+    border: none;
+    box-shadow: none;
+  }
+
+  .text p {
+    font-size: 14px;
+  }
+
+  .text h3 {
+    font-size: 22px;
+  }
+
+  .content h2 {
+    font-size: 28px;
+  }
+  .about {
+    margin-bottom: 0;
+  }
+  .photo {
+    width: 100px;
+    height: 100px;
+  }
+  .image {
+    border: 2px solid $light-green!important;
+  }
+}

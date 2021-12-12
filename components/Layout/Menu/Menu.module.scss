@@ -1,0 +1,43 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.siteList {
+  @include reset-ul();
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.siteList__item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.siteList__link {
+  @include set-font-Montserrat-regular();
+  font-size: 20px;
+  line-height: 60px;
+  color: $white;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+
+  &:active {
+    color: $light-green;
+    opacity: 1;
+  }
+}
+
+.siteList__itemCurrent {
+  background-color: $color-current;
+}
+
+
+

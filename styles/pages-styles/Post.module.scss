@@ -1,0 +1,135 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.container {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 60px 20px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content {
+  max-width: 870px;
+  margin-right: 35px;
+  background-color: #f6f6f6;
+  position: relative;
+}
+
+.sidebar {
+  max-width: 330px;
+}
+
+.list {
+  background-color: #f6f6f6;
+  @include reset-ul;
+  border-left: 4px solid $light-green;
+  padding: 35px 30px 30px;
+  min-width: 280px;
+}
+
+.list li {
+  margin-bottom: 5px;
+}
+
+.list a {
+  font-size: 16px;
+  @include set-font-Montserrat-light;
+  color: rgb(112, 112, 112);
+  line-height: 1.571;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+.list h3 {
+  @include set-font-Ubuntu-bold;
+  font-size: 20px;
+  color: rgb(107, 107, 107);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.content h2 {
+  font-size: 24px;
+  @include set-font-Ubuntu-bold;
+  color: rgb(97, 97, 97);
+  font-weight: bold;
+  line-height: 1.083;
+  margin-bottom: 15px;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+}
+
+.textWrapper {
+  padding: 50px 60px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.date {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  margin-bottom: 20px;
+}
+
+.footer svg {
+  margin-right: 10px;
+}
+
+.footer span {
+  @include set-font-Montserrat-regular;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #707070;
+}
+
+.text p {
+  font-size: 14px;
+  @include set-font-Montserrat-light;
+  color: rgb(107, 107, 107);
+  line-height: 1.714;
+  margin-bottom: 15px;
+}
+
+.text a {
+  color: $light-green;
+  font-weight: bold;
+
+  &:hover {
+    color: rgb(107, 107, 107);
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $light-green;
+  }
+}
+
+.views,
+.reviews, {
+  display: flex;
+  align-items: center;
+}
