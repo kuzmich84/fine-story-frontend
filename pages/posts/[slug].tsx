@@ -4,18 +4,20 @@ import IconCalendar from "../../components/Icons/Icon-calendar"
 import IconEye from "../../components/Icons/Icon-eye"
 import {fetchAPI} from "../../lib/api"
 import {IPost} from "../../interfaces/post.interface"
-import {GetStaticProps} from "next"
 import ReactMarkdown from "react-markdown"
 import NextImage from "next/image"
 import {getStrapiMedia} from "../../lib/media"
 import CategoryList from "../../components/CategoryList/CategoryList"
+import Seo from "../../components/seo"
+import {GetStaticPropsContext} from "next"
 
 
 const Post = ({article, categories}: IPost): JSX.Element => {
-    console.log(categories.data)
-    const {title, text} = article.attributes
+    const {title, text, seo} = article.attributes
+
     return (
         <Layout>
+            <Seo seo={seo[0]}/>
             <article className="article">
                 <div className="container">
                     <div className={styles.container}>
@@ -71,7 +73,12 @@ export async function getStaticPaths() {
     }
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params}: GetStaticPropsContext) {
+    if (!params) {
+        return {
+            notFound: true
+        }
+    }
     const articlesRes = await fetchAPI("/articles", {
         filters: {
             slug: params.slug,

@@ -28,6 +28,16 @@
   font-weight: bold;
 }
 
+.pageHeader_wrapper {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+.image_mini {
+  margin-top: 35px;
+}
+
 @media (max-width: $tablet-width) {
   .footer {
     position: static;

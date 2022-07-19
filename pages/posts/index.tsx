@@ -7,14 +7,16 @@ import {GetServerSideProps, GetStaticProps} from "next"
 import {IPosts} from "../../interfaces/posts.interface"
 import PostCard from "../../components/PostCard/PostCard"
 import {useRouter} from "next/router"
+import Seo from "../../components/seo"
 
 
-const Blog = ({articles, categories, page, countPages}: IPosts): JSX.Element => {
+const Blog = ({articles, page, countPages}: IPosts): JSX.Element => {
     const router = useRouter()
 
     // @ts-ignore
     return (
         <Layout>
+            <Seo seo={articles.seo}/>
             <section className={styles.articles}>
                 <div className="container">
                     <div className={styles.content}>

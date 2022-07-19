@@ -1,8 +1,12 @@
 import Head from "next/head"
 import Layout from "../components/Layout/Layout"
 import styles from "../styles/pages-styles/Price.module.scss"
+import {fetchAPI} from "../lib/api"
+import PriceList from "../components/PriceList/PriceList"
+import {IPriceProps} from "../interfaces/price.interface"
+import PriceCard from "../components/PriceList/PriceCard/PriceCard"
 
-const Price = (): JSX.Element => {
+const Price = ({prices}: IPriceProps): JSX.Element => {
     return (
         <Layout>
             <Head>
@@ -12,52 +16,40 @@ const Price = (): JSX.Element => {
                 <div className="container">
                     <div className={styles.content}>
                         <h2><span>Наши услуги и цены</span></h2>
-                        <ul className={styles.list}>
-                            <li className={styles.list__item}>
-                                <svg width="34" height="34">
-                                    <use xlinkHref="img/sprite.svg#icon-price-maximum"></use>
-                                </svg>
-                                <h3>`Свадебный  максимум`</h3>
-                                <h4>25 000 руб.</h4>
-                                <p>Видеосъемка в FUll HD в течение 10 часов;</p>
-                                <p>Монтаж свадебного клипа(до 5 мин.);</p>
-                                <p>Монтаж художественного свадебного фильма (до 30-50 мин.);</p>
-                                <p>Запись всех фильмов и клипа на индивидуально оформленный Flash Disc;</p>
-                                <p>Собственный автотранспорт.</p>
-                                <p>Срок изготовления – до трех месяцев</p>
-                            </li>
-                            <li className={styles.list__item}>
-                                <svg width="34" height="34">
-                                    <use xlinkHref="img/sprite.svg#icon-price-standart"></use>
-                                </svg>
-                                <h3>`Свадебный стандарт`</h3>
-                                <h4>20 000 руб.</h4>
-                                <p>Видеосъемка в FUll HD в течение 8 часов;</p>
-                                <p>Монтаж свадебного клипа(до 5 мин.);</p>
-                                <p>Монтаж художественного свадебного фильма (до 40 мин.);</p>
-                                <p>Запись всех фильмов и клипа на индивидуально оформленный Flash Disc;</p>
-                                <p>Собственный автотранспорт.</p>
-                                <p>Срок изготовления – до трех месяцев</p>
-                            </li>
-                            <li className={styles.list__item}>
-                                <svg width="34" height="34">
-                                    <use xlinkHref="img/sprite.svg#icon-price-minimum"></use>
-                                </svg>
-                                <h3>`Свадебный минимум`</h3>
-                                <h4>15 000 руб.</h4>
-                                <p> Видеосъемка ЗАГС + прогулка (вне зависимости от времени);</p>
-                                <p>Монтаж свадебного клипа (до 5 мин.);</p>
-                                <p>Монтаж репортажного фильма (до 20 мин.);</p>
-                                <p>Запись всех фильмов и клипа на индивидуально оформленный Flash Disc;</p>
-                                <p>Собственный автотранспорт.</p>
-                                <p>Срок изготовления – до трех месяцев</p>
-                            </li>
-                        </ul>
+                        <PriceList>
+                            {prices.map((price) => <PriceCard
+                                key={price.id}
+                                image={price.attributes.icon.data[0].attributes}
+                                iconWidth='34px'
+                                iconHeight='34px'
+                                title={price.attributes.packet}
+                                price={price.attributes.price}
+                                content={price.attributes.content}/>)}
+                        </PriceList>
                     </div>
                 </div>
             </section>
         </Layout>
     )
+}
+
+export const getStaticProps = async () => {
+    const priceRes = await fetchAPI(`/prices`, {
+        populate: "*"
+    })
+
+    if (!priceRes) {
+        return {
+            notFound: true,
+        }
+    }
+
+    return {
+        props: {
+            prices: priceRes.data,
+        },
+        revalidate: 1,
+    }
 }
 
 export default Price

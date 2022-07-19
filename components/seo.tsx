@@ -17,7 +17,7 @@ export interface IseoProps {
 
 const Seo = ({seo}: IseoProps) => {
 
-    const {defaultSeo , siteName}: any = useContext(GlobalContext)
+    const {defaultSeo , SiteName}: any = useContext(GlobalContext)
     const seoWithDefaults = {
         ...defaultSeo,
         ...seo,
@@ -25,7 +25,7 @@ const Seo = ({seo}: IseoProps) => {
     const fullSeo = {
         ...seoWithDefaults,
         // Add title suffix
-        metaTitle: `${seoWithDefaults.metaTitle} | ${siteName}`,
+        metaTitle: `${seoWithDefaults.metaTitle} | Fine-Story`,
         // Get full image URL
         // shareImage: getStrapiMedia(seoWithDefaults.shareImage),
     }

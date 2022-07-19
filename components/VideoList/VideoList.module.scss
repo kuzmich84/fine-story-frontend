@@ -12,14 +12,22 @@
 .list__item {
   margin-bottom: 20px;
   max-width: 400px;
-  height: auto;
+  height: 225px;
   margin-right: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.5s;
+  }
 }
 
 
 .content {
   margin: 0 auto;
   max-width: 1280px;
+  position: relative;
 }
 
 @media (max-width: $mobile-width) {

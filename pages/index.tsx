@@ -1,6 +1,4 @@
-import type {NextPage} from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/pages-styles/Home.module.scss'
 import Layout from "../components/Layout/Layout"
 import Seo from "../components/seo"

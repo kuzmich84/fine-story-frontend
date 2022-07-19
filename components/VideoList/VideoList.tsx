@@ -1,45 +1,58 @@
-import React from 'react'
-import { VideoListProps } from './VideoList.props'
+import React, {useEffect, useState} from 'react'
 import styles from './VideoList.module.scss'
+import Modal from "../Modal/Modal"
+import ReactPlayer from "react-player/lazy"
+import {VideosProps} from "../../interfaces/portfolio.interface"
+import List from "../List/List"
+import Image from "next/image"
+import {getStrapiMedia} from "../../lib/media"
 
-const VideoList = ({...props}: VideoListProps): JSX.Element => {
-  return (
-      <section className={styles.video}>
-        <h2 className="visually-hidden">Видео</h2>
-        <div className={styles.content}>
-          <ul className={styles.list}>
-            <li className={styles.list__item}><a href="#"><img src="/img/Stasya-Alexey.jpg"
-                                                              width="400" height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-            <li className={styles.list__item}><a href="#"><img src="/img/Elena-Konstantin.jpg"
-                                                              width="400" height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-            <li className={styles.list__item}><a href="#"><img src="/img/Marina-Vladimir.jpg"
-                                                              width="400" height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-            <li className={styles.list__item}><a href="#"><img src="/img/Roman-Viktoriya.jpg"
-                                                              width="400" height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-            <li className={styles.list__item}><a href="#"><img src="/img/Alesya-Ivan.jpg" width="400"
-                                                              height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-            <li className={styles.list__item}><a href="#"><img src="/img/Natalia-Anton.jpg"
-                                                              width="400" height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-            <li className={styles.list__item}><a href="#"><img src="/img/Katya-Oleg.jpg" width="400"
-                                                              height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-            <li className={styles.list__item}><a href="#"><img src="/img/Yura-Galya.jpg" width="400"
-                                                              height="225"
-                                                              alt="Свадебная съемка"/></a></li>
+const VideoList = ({videos}: VideosProps): JSX.Element => {
+    const [modalActive, setModalActive] = useState(false)
+    const[videoUrl, setVideoUrl] = useState('')
 
-            <li className={styles.list__item}><a href="#"><img src="/img/Katya-Igor.jpg" width="400"
-                                                              height="225"
-                                                              alt="Свадебная съемка"/></a></li>
-          </ul>
-        </div>
-      </section>
-  );
-};
+    useEffect(() => {
+        const close = (e:any) => {
+            if(e.keyCode === 27){
+                setModalActive(false)
+            }
+        }
+        window.addEventListener('keydown', close)
+        return () => window.removeEventListener('keydown', close)
+    },[])
+
+    return (
+        <section className={styles.video}>
+            <h2 className="visually-hidden">Видео</h2>
+            <div className={styles.content}>
+                <List
+                    items={videos}
+                    renderItem={(video) =>
+                        (<li key={video.id} onClick={() => {
+                            setModalActive(true)
+                            setVideoUrl(video.attributes.URL)
+                        }} className={styles.list__item}><a>
+                            <Image
+                                src={getStrapiMedia(video.attributes.image.data.attributes)}
+                                width={400}
+                                height={225}
+                                placeholder="blur"
+                                blurDataURL={getStrapiMedia(video.attributes.image.data.attributes.formats.xsmall)}
+                                alt={video.attributes.image.data.attributes.alternativeText}
+                            /></a></li>)}
+                    className={styles.list}/>
+                <Modal active={modalActive} setActive={setModalActive}>
+                    <ReactPlayer
+                        url={modalActive ? videoUrl : ''}
+                        width={720}
+                        height={405}
+                        playing={modalActive}
+                        controls={true}
+                    />
+                </Modal>
+            </div>
+        </section>
+    )
+}
 
 export default VideoList

@@ -1,3 +1,5 @@
+import {Seo} from "./seo.interface"
+
 export interface Attributes {
     title: string;
     description: string;
@@ -6,7 +8,9 @@ export interface Attributes {
     createdAt: Date;
     updatedAt: Date;
     publishedAt: Date;
+    seo: Seo[]
 }
+
 
 export interface Data {
     id: number;
@@ -20,7 +24,7 @@ export interface AttributesCategories {
 
 export interface Datum {
     id: number;
-    attributes: AttributesCategories ;
+    attributes: AttributesCategories;
 }
 
 export interface Pagination {
@@ -34,9 +38,14 @@ export interface Meta {
     pagination: Pagination;
 }
 
+export interface data {
+    data: Datum[]
+}
+
 export interface IPost {
+    attributes: Attributes;
     article: Data;
-    categories: Datum[];
+    categories: data;
 }
 
 

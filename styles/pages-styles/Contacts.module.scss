@@ -24,7 +24,7 @@
 
 
 .content h2 {
-   @include set-font-Montserrat-bold;
+  @include set-font-Montserrat-bold;
   font-size: 18px;
   font-stretch: normal;
   font-style: normal;
@@ -88,6 +88,27 @@
   margin-bottom: 50px;
 }
 
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 15px;
+}
+
+.form input {
+  width: 100%;
+}
+
+.form textarea {
+  width: 100%;
+}
+
+.textarea {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  margin-bottom: 15px;
+}
+
 .feedback input {
   height: 31px;
   margin-bottom: 18px;
@@ -95,10 +116,12 @@
   padding-bottom: 13px;
 }
 
-.feedback input::placeholder,
-.feedback textarea::placeholder,
-.feedback input,
-.feedback textarea {
+.input_name::placeholder,
+.input_phone::placeholder,
+.input_textarea::placeholder,
+.input_name,
+.input_phone,
+.input_textarea {
   @include set-font-Montserrat-regular;
   font-size: 12px;
   font-weight: 300;
@@ -109,39 +132,47 @@
   color: #a2a2a2;
 }
 
-.feedback input,
-.feedback textarea {
+.input_name,
+.input_phone,
+.input_textarea {
   border: solid 1px #c9c9c9;
   padding-left: 16px;
-  outline: none;
-
-  &:hover {
-    border-color: $light-green;
-  }
-
-  &:focus {
-    border-color: $light-green;
-  }
+  outline: $light-green;
 }
 
-.feedback textarea {
-  margin-bottom: 20px;
-  height: 150px;
+.errorInput {
+  border: solid 2px red;
 }
 
-.input_name {
-  width: 199px;
-  margin-right: 18px;
-}
-
-.input_phone {
-  width: 252px;
+.errorTextarea {
+  border: solid 1px red;
 }
 
 .input_textarea {
-  width: 473px;
-  height: 86px;
+  height: 150px;
+  margin-bottom: 15px;
 }
+
+
+.error {
+  color: red;
+  @include set-font-Montserrat-regular;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+  margin-top: -15px;
+}
+
+
+.success {
+  @include set-font-Montserrat-regular;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+  color: $light-green;
+  margin-top: 15px;
+}
+
 
 .btn {
   background-color: $light-green;
@@ -152,6 +183,7 @@
   height: 38px;
   margin-bottom: 0;
   outline: none;
+  margin-top: 20px;
 
   &:hover {
     background-color: #4e4e4e;
@@ -160,6 +192,10 @@
   &:active {
     background-color: $light-green;
   }
+}
+
+.btn:disabled {
+  background-color: #5a5a5a;
 }
 
 .address h3 {
@@ -184,6 +220,7 @@
     bottom: -10px;
   }
 }
+
 
 @media (max-width: $mobile-width) {
   .feedback,

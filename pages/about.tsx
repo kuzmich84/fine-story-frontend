@@ -7,15 +7,14 @@ import {IAboutInterface} from "../interfaces/about.interface"
 import ReactMarkdown from "react-markdown"
 import {getStrapiMedia} from "../lib/media"
 import Image from "next/image"
+import Seo from "../components/seo"
 
 const About = ({data, image}: IAboutInterface): JSX.Element => {
-    const {title, description} = data
+    const {title, description, seo} = data
 
     return (
         <Layout>
-            <Head>
-                <title>О нас</title>
-            </Head>
+            <Seo seo={seo}/>
             <section className={styles.about}>
                 <div className="container">
                     <div className={styles.content}>

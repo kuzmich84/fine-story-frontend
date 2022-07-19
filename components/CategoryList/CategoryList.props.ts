@@ -1,9 +1,11 @@
+
 export interface Attributes {
-    Name: string;
-    Description?: any;
+    name: string;
+    description?: any;
     createdAt: Date;
     updatedAt: Date;
     publishedAt: Date;
+    slug: string;
 }
 
 export interface Datum {

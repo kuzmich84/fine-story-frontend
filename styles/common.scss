@@ -121,19 +121,8 @@ img {
 .page-main {
   width: 100%;
   height: 100vh;
-  background: url("/img/bg-main.jpg") fixed top center;
+  background: url("/img/bg-main.jpg") no-repeat center center fixed;
   background-size: cover;
-
-  &::before {
-    content: "";
-    background: rgba(5, 13, 24, 0.3);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-  }
 }
 
 .page-main__content {
@@ -141,12 +130,8 @@ img {
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin-left: 470px;
 }
 
-.main {
-  margin-left: 470px;
-}
 
 .container {
   width: 100%;

@@ -2,7 +2,6 @@ import '../styles/globals.scss'
 import type {AppContext, AppProps} from 'next/app'
 import Head from "next/head"
 import React, {createContext} from "react"
-import axios from "axios"
 import App from "next/app"
 import {fetchAPI} from "../lib/api"
 

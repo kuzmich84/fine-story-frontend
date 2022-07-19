@@ -1,21 +1,18 @@
 @import "../../styles/mixins";
 @import "../../styles/variables";
+.content {
+  display: grid;
+  grid-template-columns: 470px 1fr;
+}
 
 .pageHeader {
-  width: 470px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
   background-color: $color-menu;
-  z-index: 10000;
-  display: block;
+  min-height: 100vh;
 }
 
 .pageHeader_content {
   display: flex;
   flex-direction: column;
-  min-height: 970px;
   padding-bottom: 100px;
   padding-top: 80px;
 }
@@ -40,19 +37,15 @@
   background-color: $color-current;
 }
 
-.pageHeader_wrapper {
-  margin: 0 auto;
-  max-width: 500px;
-  padding: 0 20px;
-}
 
-.image_mini {
-  margin-top: 35px;
-}
+
 
 
 @media (max-width: $tablet-width) {
   .pageHeader {
     display: none;
+  }
+  .content{
+    grid-template-columns: 1fr;
   }
 }

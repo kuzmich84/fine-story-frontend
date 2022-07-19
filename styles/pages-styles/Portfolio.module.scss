@@ -43,6 +43,7 @@
 
 .list__item {
   padding-right: 54px;
+  cursor: pointer;
 }
 
 .list__item:last-child {
@@ -59,6 +60,17 @@
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 28px;
+}
+
+.portfolio h3 {
+  @include set-font-Montserrat-light;
+  font-size: 18px;
+  line-height: 20px;
+  font-stretch: normal;
+  font-style: normal;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
 }
 
 .portfolio h2,

@@ -30,7 +30,7 @@ program
 program
     .command('statelessComponent <componentName>')
     .alias('f')
-    .description('Generate a stateless component')
+    .description('Generate a function component')
     .action((componentName) => {
         generateReactFunctionComponent(componentName)
     })

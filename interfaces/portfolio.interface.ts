@@ -1,5 +1,4 @@
-import {Datum as DatumCategories} from "./post.interface"
-
+import {Datum as DatumCategories} from "./video-categories.interface"
 export interface Thumbnail {
     name: string;
     hash: string;
@@ -24,7 +23,7 @@ export interface Large {
     url: string;
 }
 
-export interface Medium {
+export interface Small {
     name: string;
     hash: string;
     ext: string;
@@ -36,7 +35,7 @@ export interface Medium {
     url: string;
 }
 
-export interface Small {
+export interface Xsmall {
     name: string;
     hash: string;
     ext: string;
@@ -51,8 +50,8 @@ export interface Small {
 export interface Formats {
     thumbnail: Thumbnail;
     large: Large;
-    medium: Medium;
     small: Small;
+    xsmall: Xsmall;
 }
 
 export interface Attributes2 {
@@ -74,58 +73,41 @@ export interface Attributes2 {
     updatedAt: Date;
 }
 
-export interface Datum2 {
+export interface Data {
     id: number;
     attributes: Attributes2;
 }
 
 export interface Image {
-    data: Datum2[];
+    data: Data;
 }
 
 export interface Attributes3 {
-    Name: string;
-    Description?: any;
+    name: string;
     createdAt: Date;
     updatedAt: Date;
     publishedAt: Date;
+    slug?: any;
 }
 
-export interface Data {
+export interface Datum2 {
     id: number;
     attributes: Attributes3;
 }
 
-export interface Category {
-    data: Data;
-}
-
-export interface Seo {
-    id: number;
-    metaTitle?: any;
-    metaDescription: string;
-    keywords: string;
-    preventIndexing: boolean;
+export interface VideoCategories {
+    data: Datum2[];
 }
 
 export interface Attributes {
-    title: string;
-    text: string;
-    date: string;
+    URL: string;
     createdAt: Date;
     updatedAt: Date;
     publishedAt: Date;
-    views?: any;
-    slug: string;
-    excerpt: string;
+    title: string;
+    date: string;
     image: Image;
-    category: Category;
-    seo: Seo[];
-    thumbnail: {
-        data: {
-            attributes: Attributes;
-        }
-    }
+    video_categories: VideoCategories;
 }
 
 export interface Datum {
@@ -144,13 +126,11 @@ export interface Meta {
     pagination: Pagination;
 }
 
-export interface IPosts {
-    articles: Datum[];
-    meta: Meta;
-    categories: DatumCategories[];
-    countPages: number;
-    page: number
+export interface VideosProps {
+    videos: Datum[];
+    videoCategories: DatumCategories[];
+    meta?: Meta;
+    slug?: string
 }
-
 
 
