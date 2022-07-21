@@ -4,6 +4,7 @@ import {DatumCategories} from "../../interfaces/video-categories.interface"
 import {IPosts} from "../../interfaces/posts.interface"
 import Layout from "../../components/Layout/Layout"
 import PostCard from "../../components/PostCard/PostCard"
+import styles from "../../styles/pages-styles/Blog.module.scss";
 
 
 const Category = ({articles}: IPosts): JSX.Element => {
@@ -11,20 +12,26 @@ const Category = ({articles}: IPosts): JSX.Element => {
 
     return (
         <Layout>
-            <div>Category of Video</div>
-            {articles.map((article) => {
-                return (
-                    <PostCard
-                        key={article.id}
-                        image={article.attributes.thumbnail.data.attributes}
-                        title={article.attributes.title}
-                        excerpt={article.attributes.excerpt}
-                        slug={article.attributes.slug}
-                        date={article.attributes.date}
-                        views={article.attributes.views}
-                    />
-                )
-            })}
+            <section className={styles.articles}>
+                <div className="container">
+                    <div className={styles.content}>
+                        <h2>Категория статей</h2>
+                        {articles.map((article) => {
+                            return (
+                                <PostCard
+                                    key={article.id}
+                                    image={article.attributes.thumbnail.data.attributes}
+                                    title={article.attributes.title}
+                                    excerpt={article.attributes.excerpt}
+                                    slug={article.attributes.slug}
+                                    date={article.attributes.date}
+                                    views={article.attributes.views}
+                                />
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
         </Layout>
     )
 }

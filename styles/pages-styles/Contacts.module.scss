@@ -19,7 +19,7 @@
   max-width: 1180px;
   padding-right: 20px;
   padding-left: 20px;
-  padding-top: 30px;
+  padding-top: 90px;
 }
 
 
@@ -74,7 +74,7 @@
 
 .address p {
   @include set-font-Montserrat-regular;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -200,7 +200,7 @@
 
 .address h3 {
   @include set-font-Montserrat-regular;
-  font-size: 16px;
+  font-size: 26px;
   font-weight: 700;
   font-stretch: normal;
   font-style: normal;

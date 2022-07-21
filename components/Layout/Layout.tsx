@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {LayoutProps} from './Layout.props'
 import IconMenuBurger from "../Icons/Icon-menu-burger"
 import SocialList from "../SocialList/SocialList"
@@ -9,13 +9,25 @@ import Menu from "./Menu/Menu"
 import Footer from "./Footer/Footer"
 import IconArrowUp from "../Icons/Icon-arrow-up"
 import {useRouter} from 'next/router'
+import IconClose from "../Icons/Icon-close";
+import IconMenuClose from "../Icons/Icon-menu-close";
 
 const Layout = ({children, seo}: LayoutProps): JSX.Element => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const clickHandleMenu = () => {
+        setIsOpen(!isOpen)
+    }
     return (
         <>
-            <button type="button" className="mobile-nav-toggle">
-                <IconMenuBurger/>
+            <button type="button" className="mobile-nav-toggle" onClick={clickHandleMenu}>
+                {isOpen && <IconMenuClose fill="#33cc99" width={50} height={50}/>}
+                {!isOpen && <IconMenuBurger/>}
             </button>
+            {isOpen && (
+                <div className="mobile-nav">
+                    <Menu/>
+                </div>
+            )}
             <div className={styles.content}>
                 <header className={styles.pageHeader}>
                     <div className={styles.pageHeader_content}>

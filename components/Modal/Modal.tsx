@@ -16,7 +16,6 @@ const Modal = ({active, setActive, children, ...props}: ModalProps): JSX.Element
                 <IconClose fill="#33cc99" width={50} height={50}/>
             </div>
         </div>
-
     )
 }
 

@@ -62,8 +62,10 @@ const Contacts = (): JSX.Element => {
                                 <p>Мы будем рады пообщаться с Вами в неформальной обстановке, рассказать о всех нюансах
                                     видеосъемки и обсудить сценарий торжества.</p>
                                 <p>Вы сможете задать все интересующие Вас вопросы.</p>
-                                <a href="tel:+79215777600"><p>Телефон: <span>+7-921-5-777-600</span></p></a>
-                                <a href="mailto:mail@fine-story.ru"><p>Email: <span>mail@fine-story.ru</span></p></a>
+                                <br/>
+
+                                <a href="tel:+79215777600"><p>Телефон: <b>+7-921-5-777-600</b></p></a>
+                                <a href="mailto:mail@fine-story.ru"><p>Email: <b>mail@fine-story.ru</b></p></a>
                             </div>
                             <div className={styles.feedback}>
                                 <h2>Напишите нам</h2>

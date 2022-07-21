@@ -2,7 +2,7 @@
 @import "styles/variables";
 
 .welcome {
-  z-index: 2;
+  z-index: 4;
 }
 
 .main__content {
@@ -40,7 +40,14 @@
   justify-content: center;
   margin-left: -34px;
   margin-top: -200px;
+}
 
+.inner {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  text-align: center;
+  padding: 50px;
 }
 
 .welcome p {
@@ -48,6 +55,15 @@
   @include set-font-Ubuntu-bold;
   color: rgb(255, 255, 255);
   line-height: 0.56;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, .3);
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 @media (max-width: $mobile-width) {

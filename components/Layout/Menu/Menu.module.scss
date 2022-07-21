@@ -39,5 +39,26 @@
   background-color: $color-current;
 }
 
+@media (max-width: $tablet-width) {
+  .siteList__link {
+    color: $black;
+
+
+  }
+
+  .siteList__itemCurrent {
+    background-color: rgba(51,204,153,0.5);
+  }
+
+
+}
+
+@media (max-width: $mobile-width) {
+  .siteList__link {
+    font-size: 18px;
+  }
+
+}
+
 
 
