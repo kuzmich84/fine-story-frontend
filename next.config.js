@@ -8,6 +8,6 @@ module.exports = {
   },
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["127.0.0.1"],
   },
 }
